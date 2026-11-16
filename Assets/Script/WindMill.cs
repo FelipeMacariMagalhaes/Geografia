@@ -1,4 +1,4 @@
-// WhirlwindQTE.cs
+// WindMill.cs
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,24 +6,35 @@ using UnityEngine.UI;
 public class WindMill : MonoBehaviour
 {
     [Header("Empurrão")]
-    [SerializeField] private Vector2 pushDirection = Vector2.left; // pra onde ele joga o player
+    [SerializeField] private Vector2 pushDirection = Vector2.left;
     [SerializeField] private float pushForce = 40f;
     [SerializeField] private string playerTag = "Player";
 
     [Header("Quick time (spam)")]
     [SerializeField] private KeyCode spamKey = KeyCode.E;
-    [SerializeField] private float progressPerPress = 0.08f; // 0 a 1 (quanto cada clique enche)
-    [SerializeField] private float decayPerSecond = 0.35f;   // quanto esvazia por segundo se parar
+    [SerializeField] private float progressPerPress = 0.08f;
+    [SerializeField] private float decayPerSecond = 0.35f;
 
     [Header("Ao desligar")]
     [SerializeField] private float offDuration = 4f;
-    [SerializeField] private GameObject visual;       // sprite/animação do redemoinho
-    [SerializeField] private Slider progressBar;      // opcional
-    [SerializeField] private GameObject qtePrompt;    // opcional ("SPAM E!")
+    [SerializeField] private GameObject visual;
+    [SerializeField] private bool hideVisualWhenOff = false; // deixe desmarcado: o visual não some
+    [SerializeField] private Slider progressBar;
+    [SerializeField] private GameObject qtePrompt;
+
+    // ---------- Bloqueio global do vento (a cutscene usa isso) ----------
+    public static float WindBlockedUntil;
+    public static bool IsWindBlocked => Time.time < WindBlockedUntil;
+    public static void BlockWind(float seconds) => WindBlockedUntil = Time.time + seconds;
+    public static void BlockWindIndefinitely() => WindBlockedUntil = float.PositiveInfinity;
+
+    [RuntimeInitializeOnLoadMethod]
+    private static void ResetBlock() => WindBlockedUntil = 0f;
 
     private Rigidbody2D playerRb;
     private float progress;
     private bool isOff;
+    private bool wasBlocked;
 
     private void Reset() => GetComponent<Collider2D>().isTrigger = true;
 
@@ -31,7 +42,15 @@ public class WindMill : MonoBehaviour
 
     private void Update()
     {
-        if (isOff || playerRb == null) return;
+        bool blocked = IsWindBlocked;
+        if (blocked != wasBlocked)
+        {
+            wasBlocked = blocked;
+            progress = 0f;
+            if (playerRb != null) SetUI(!blocked && !isOff);
+        }
+
+        if (blocked || isOff || playerRb == null) return;
 
         if (Input.GetKeyDown(spamKey))
             progress += progressPerPress;
@@ -47,9 +66,8 @@ public class WindMill : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isOff || playerRb == null) return;
+        if (IsWindBlocked || isOff || playerRb == null) return;
 
-        // Quanto mais cheia a barra, mais fraco o empurrão
         float strength = 1f - progress;
         playerRb.AddForce(pushDirection.normalized * pushForce * strength);
     }
@@ -58,7 +76,7 @@ public class WindMill : MonoBehaviour
     {
         isOff = true;
         progress = 0f;
-        if (visual != null) visual.SetActive(false);
+        if (hideVisualWhenOff && visual != null) visual.SetActive(false);
         SetUI(false);
         Invoke(nameof(TurnOn), offDuration);
     }
@@ -67,7 +85,7 @@ public class WindMill : MonoBehaviour
     {
         isOff = false;
         if (visual != null) visual.SetActive(true);
-        if (playerRb != null) SetUI(true);
+        if (playerRb != null && !IsWindBlocked) SetUI(true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -76,7 +94,7 @@ public class WindMill : MonoBehaviour
 
         playerRb = other.attachedRigidbody;
         progress = 0f;
-        if (!isOff) SetUI(true);
+        if (!isOff && !IsWindBlocked) SetUI(true);
     }
 
     private void OnTriggerExit2D(Collider2D other)
