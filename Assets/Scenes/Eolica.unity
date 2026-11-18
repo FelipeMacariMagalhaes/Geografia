@@ -360,6 +360,32 @@ MonoBehaviour:
   bobHeight: 0.06
   maxLean: 5
   leanSmooth: 10
+--- !u!1 &169360130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1855703443938817032, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 418598381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &169360134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169360130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
 --- !u!1 &210404748
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +536,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6318915919859451581, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 9120861786968711116, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 5715667364583695977, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 5200474993853274041, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 3849254472353748079, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -685,6 +716,32 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &309632930 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2522431176316014809, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 418598381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &309632934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309632930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
 --- !u!1 &392967638
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,6 +773,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 64632842}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &393758288 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1855703443938817032, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 949303779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &393758292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393758288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
 --- !u!1 &404848647
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,10 +882,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6318915919859451581, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 9120861786968711116, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 5715667364583695977, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 5200474993853274041, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 3849254472353748079, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 294443606474547272, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1299574130}
+    - targetCorrespondingSourceObject: {fileID: 1855703443938817032, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 169360134}
+    - targetCorrespondingSourceObject: {fileID: 3891465440106525414, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 500981290}
+    - targetCorrespondingSourceObject: {fileID: 2522431176316014809, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 309632934}
+    - targetCorrespondingSourceObject: {fileID: 1978356080213942415, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1109930949}
+    - targetCorrespondingSourceObject: {fileID: 3665381932503595609, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 432574770}
   m_SourcePrefab: {fileID: 100100000, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
 --- !u!1 &420276378
 GameObject:
@@ -969,6 +1075,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424827271}
   m_CullTransparentMesh: 1
+--- !u!1 &432574766 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3665381932503595609, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 418598381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &432574770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432574766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
 --- !u!1 &438879968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,6 +1251,58 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!1 &500981286 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3891465440106525414, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 418598381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &500981290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500981286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
+--- !u!1 &501148774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1978356080213942415, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 949303779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &501148778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501148774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
 --- !u!1001 &530778213
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1233,6 +1417,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5643ef5ec8f65ac409c86eda793422f9, type: 3}
+--- !u!1 &564638445 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3891465440106525414, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 949303779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &564638449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564638445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
 --- !u!1 &722720121
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,6 +1541,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4540895541831033159, guid: f9686a96e4aa34a4bae630a371420751, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540895541831033159, guid: f9686a96e4aa34a4bae630a371420751, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5253091212354076011, guid: f9686a96e4aa34a4bae630a371420751, type: 3}
       propertyPath: m_Name
       value: Background (1)
@@ -1686,10 +1904,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4674037825909169627, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 6318915919859451581, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 9120861786968711116, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 5715667364583695977, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 5200474993853274041, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+    - {fileID: 3849254472353748079, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 294443606474547272, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1605824545}
+    - targetCorrespondingSourceObject: {fileID: 1855703443938817032, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 393758292}
+    - targetCorrespondingSourceObject: {fileID: 3891465440106525414, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 564638449}
+    - targetCorrespondingSourceObject: {fileID: 2522431176316014809, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1539076795}
+    - targetCorrespondingSourceObject: {fileID: 1978356080213942415, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 501148778}
+    - targetCorrespondingSourceObject: {fileID: 3665381932503595609, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1376082180}
   m_SourcePrefab: {fileID: 100100000, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
 --- !u!1 &958426333
 GameObject:
@@ -1874,6 +2116,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5643ef5ec8f65ac409c86eda793422f9, type: 3}
+--- !u!1 &1109930945 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1978356080213942415, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 418598381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1109930949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109930945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
 --- !u!1 &1144758828
 GameObject:
   m_ObjectHideFlags: 0
@@ -1965,6 +2233,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9686a96e4aa34a4bae630a371420751, type: 3}
+--- !u!1 &1299574126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 294443606474547272, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 418598381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1299574130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299574126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
 --- !u!1 &1319582326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,6 +2334,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1319582326}
   m_CullTransparentMesh: 1
+--- !u!1 &1376082176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3665381932503595609, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 949303779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1376082180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376082176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
 --- !u!1001 &1421576156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2303,6 +2623,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1539076791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2522431176316014809, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 949303779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1539076795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539076791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
+--- !u!1 &1605824541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 294443606474547272, guid: 203f2046ce7d70148b8399c5c89ee483, type: 3}
+  m_PrefabInstance: {fileID: 949303779}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1605824545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605824541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bfa16c5c5099e04bb674cfb3f0c268c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BushAnimation2D
+  breathAmount: 0.015
+  breathSpeed: 2.5
+  swayAngle: 3
+  swaySpeed: 2
+  springStrength: 220
+  springDamping: 9
+  squashAmount: 0.12
+  shakeAmount: 0.3
+  shakeSpeed: 8
 --- !u!1 &1659222624
 GameObject:
   m_ObjectHideFlags: 0
