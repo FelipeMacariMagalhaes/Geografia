@@ -21,5 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Solar.unity
     guid: 09a09e1ba118ae24598e969832b47492
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: c9c266efee694f048955faf2b8173311, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: dd36074c55e2fb942ac0b276e8ce0170, type: 2}
   m_UseUCBPForAssetBundles: 0
