@@ -1,7 +1,7 @@
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
 using TMPro;
-
+using DG.Tweening;
 public class DialogoSapo : MonoBehaviour
 {
     public enum Quem { Player, Sapo }
@@ -16,9 +16,12 @@ public class DialogoSapo : MonoBehaviour
 
     [Header("UI")]
     public GameObject painelDialogo;
-    public TextMeshProUGUI nomePlayerTexto;    
-    public TextMeshProUGUI nomeSapoTexto;     
+    public TextMeshProUGUI nomePlayerTexto;
+    public TextMeshProUGUI nomeSapoTexto;
     public TextMeshProUGUI falaTexto;
+
+    [Header("Sapo")]
+    public GameObject sapoSprite; // arraste o sapo aqui (ou deixe vazio para usar o próprio objeto)
 
     [Header("Nomes")]
     public string nomePlayer = "Player";
@@ -62,7 +65,6 @@ public class DialogoSapo : MonoBehaviour
         nomePlayerTexto.text = nomePlayer;
         nomeSapoTexto.text = nomeSapo;
 
-        // mostra só o nome de quem está falando
         nomePlayerTexto.gameObject.SetActive(f.quemFala == Quem.Player);
         nomeSapoTexto.gameObject.SetActive(f.quemFala == Quem.Sapo);
 
@@ -84,5 +86,9 @@ public class DialogoSapo : MonoBehaviour
     {
         dialogoAtivo = false;
         painelDialogo.SetActive(false);
+
+        var sr = (sapoSprite != null ? sapoSprite : gameObject).GetComponent<SpriteRenderer>();
+        if (sr != null)
+            sr.DOFade(0f, 0.5f).OnComplete(() => sr.gameObject.SetActive(false));
     }
 }
