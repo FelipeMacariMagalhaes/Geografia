@@ -1,19 +1,28 @@
-// Menu.cs
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using PixeLadder.EasyTransition;
+using PixeLadder.EasyTransition.Demo;
 
 [System.Serializable]
 public class LevelEntry
 {
-    public string sceneName;          // nome EXATO da cena
-    public Button button;             // botão da fase
-    public GameObject completedMark;  // "✔" (opcional)
+    public string sceneName;
+    public Button button;
+    public GameObject completedMark;
 }
 
 public class Menu : MonoBehaviour
 {
+    [Header("Transição")]
+    [SerializeField] private TransitionEffect levelTransition;
+    [SerializeField] private float transitionDuration = 1f;
+
+    private bool isTransitioning;
+
     [Header("Painéis")]
     [SerializeField] private GameObject levelsPanel;
     [SerializeField] private GameObject creditsPanel;
@@ -24,14 +33,14 @@ public class Menu : MonoBehaviour
     [SerializeField] private Button quitButton;
 
     [Header("Botões de voltar")]
-    [SerializeField] private Button backButton;        // dentro dos créditos
-    [SerializeField] private Button levelsBackButton;  // dentro do painel de fases
+    [SerializeField] private Button backButton;
+    [SerializeField] private Button levelsBackButton;
 
     [Header("Fases")]
-    [SerializeField] private LevelEntry[] levels;      // as 4 fases
-    [SerializeField] private bool lockCompleted = true; // fase concluída não abre mais
-    [SerializeField] private TMP_Text progressText;    // "Concluídas: 2/4" (opcional)
-    [SerializeField] private Button resetButton;       // zera o progresso (opcional, pra testes)
+    [SerializeField] private LevelEntry[] levels;
+    [SerializeField] private bool lockCompleted = true;
+    [SerializeField] private TMP_Text progressText;
+    [SerializeField] private Button resetButton;
 
     private void Awake()
     {
@@ -40,7 +49,9 @@ public class Menu : MonoBehaviour
         quitButton.onClick.AddListener(Quit);
         backButton.onClick.AddListener(CloseCredits);
         levelsBackButton.onClick.AddListener(CloseLevels);
-        if (resetButton != null) resetButton.onClick.AddListener(ResetProgress);
+
+        if (resetButton != null)
+            resetButton.onClick.AddListener(ResetProgress);
 
         foreach (LevelEntry level in levels)
         {
@@ -55,7 +66,6 @@ public class Menu : MonoBehaviour
         creditsPanel.SetActive(false);
         RefreshLevels();
 
-        // Zerou as 4 fases: abre os créditos uma vez
         if (AllCompleted() && !LevelProgress.FinalShown)
         {
             LevelProgress.FinalShown = true;
@@ -63,20 +73,62 @@ public class Menu : MonoBehaviour
         }
     }
 
-    // ---------- Fases ----------
-
     private void OpenLevels()
     {
         RefreshLevels();
         levelsPanel.SetActive(true);
     }
 
-    private void CloseLevels() => levelsPanel.SetActive(false);
+    private void CloseLevels()
+    {
+        levelsPanel.SetActive(false);
+    }
 
     private void LoadLevel(string sceneName)
     {
-        if (lockCompleted && LevelProgress.IsCompleted(sceneName)) return;
-        SceneManager.LoadScene(sceneName);
+        if (isTransitioning)
+            return;
+
+        if (lockCompleted && LevelProgress.IsCompleted(sceneName))
+            return;
+
+        StartCoroutine(LoadLevelRoutine(sceneName));
+    }
+
+
+    private IEnumerator LoadLevelRoutine(string sceneName)
+    {
+        isTransitioning = true;
+
+        PlayTransition(sceneName);
+
+        yield return null;
+    }
+
+
+    private void PlayTransition(string sceneName)
+    {
+        if (levelTransition == null)
+        {
+            Debug.LogWarning("[Easy Transition] Nenhum efeito foi atribuído.");
+            return;
+        }
+
+        if (SceneTransitioner.Instance == null)
+        {
+            Debug.LogWarning("[Easy Transition] SceneTransitioner não encontrado.");
+            return;
+        }
+
+        if (SceneTransitioner.Instance.IsTransitioning)
+            return;
+
+        TransitionEffect clonedEffect = Instantiate(levelTransition);
+        clonedEffect.name = levelTransition.name + "_Clone";
+
+        clonedEffect.Duration = transitionDuration;
+
+        SceneTransitioner.Instance.LoadScene(sceneName, clonedEffect);
     }
 
     private void RefreshLevels()
@@ -86,9 +138,10 @@ public class Menu : MonoBehaviour
         foreach (LevelEntry level in levels)
         {
             bool completed = LevelProgress.IsCompleted(level.sceneName);
-            if (completed) done++;
 
-            // Concluída = botão travado (não dá pra voltar)
+            if (completed)
+                done++;
+
             level.button.interactable = !(completed && lockCompleted);
 
             if (level.completedMark != null)
@@ -101,32 +154,41 @@ public class Menu : MonoBehaviour
 
     private bool AllCompleted()
     {
-        if (levels.Length == 0) return false;
+        if (levels.Length == 0)
+            return false;
 
         foreach (LevelEntry level in levels)
-            if (!LevelProgress.IsCompleted(level.sceneName)) return false;
+        {
+            if (!LevelProgress.IsCompleted(level.sceneName))
+                return false;
+        }
 
         return true;
     }
 
-    // Clique com o botão direito no componente > "Resetar progresso"
     [ContextMenu("Resetar progresso")]
     public void ResetProgress()
     {
         string[] scenes = new string[levels.Length];
+
         for (int i = 0; i < levels.Length; i++)
             scenes[i] = levels[i].sceneName;
 
         LevelProgress.ResetAll(scenes);
 
-        if (Application.isPlaying) RefreshLevels();
+        if (Application.isPlaying)
+            RefreshLevels();
     }
 
-    // ---------- Créditos e sair ----------
+    private void OpenCredits()
+    {
+        creditsPanel.SetActive(true);
+    }
 
-    private void OpenCredits() => creditsPanel.SetActive(true);
-
-    private void CloseCredits() => creditsPanel.SetActive(false);
+    private void CloseCredits()
+    {
+        creditsPanel.SetActive(false);
+    }
 
     private void Quit()
     {
