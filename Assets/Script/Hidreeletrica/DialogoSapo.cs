@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using DG.Tweening;
+
 public class DialogoSapo : MonoBehaviour
 {
     public enum Quem { Player, Sapo }
@@ -33,10 +33,11 @@ public class DialogoSapo : MonoBehaviour
     int indice;
     int frameInicio;
     bool dialogoAtivo;
+    bool jaConversou;
 
     void OnMouseDown()
     {
-        if (dialogoAtivo) return;
+        if (dialogoAtivo || jaConversou) return;
         IniciarDialogo();
     }
 
@@ -65,6 +66,7 @@ public class DialogoSapo : MonoBehaviour
         nomePlayerTexto.text = nomePlayer;
         nomeSapoTexto.text = nomeSapo;
 
+        // mostra só o nome de quem está falando
         nomePlayerTexto.gameObject.SetActive(f.quemFala == Quem.Player);
         nomeSapoTexto.gameObject.SetActive(f.quemFala == Quem.Sapo);
 
@@ -85,10 +87,18 @@ public class DialogoSapo : MonoBehaviour
     void FecharDialogo()
     {
         dialogoAtivo = false;
+        jaConversou = true;  
         painelDialogo.SetActive(false);
 
-        var sr = (sapoSprite != null ? sapoSprite : gameObject).GetComponent<SpriteRenderer>();
-        if (sr != null)
-            sr.DOFade(0f, 0.5f).OnComplete(() => sr.gameObject.SetActive(false));
+        Collider2D col2D = GetComponent<Collider2D>();
+        if (col2D != null) col2D.enabled = false;
+        Collider col3D = GetComponent<Collider>();
+        if (col3D != null) col3D.enabled = false;
+
+        // faz o sapo sumir
+        if (sapoSprite != null)
+            sapoSprite.SetActive(false);
+        else
+            gameObject.SetActive(false);
     }
 }
