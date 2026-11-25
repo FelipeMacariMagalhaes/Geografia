@@ -1856,6 +1856,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1001596694}
   m_CullTransparentMesh: 1
+--- !u!1 &1096149886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1096149888}
+  - component: {fileID: 1096149887}
+  m_Layer: 0
+  m_Name: SceneTransitioner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1096149887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096149886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77b525215f79aa7468598d85400f45f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixeLadder.EasyTransition.SceneTransitioner
+  transitionImagePrefab: {fileID: 0}
+  canvasRenderMode: 0
+  targetCamera: {fileID: 0}
+  canvasSortingOrder: 999
+  blockUIInteraction: 1
+  defaultTransition: {fileID: 11400000, guid: 800cf4f007f3e6a4d85d89ee6e2d175c, type: 2}
+  OnTransitionStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFadeOutComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSceneLoaded:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFadeInStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTransitionFinished:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1096149888
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096149886}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 362.59814, y: 145.88411, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1129356551
 GameObject:
   m_ObjectHideFlags: 0
@@ -3868,6 +3933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e142e51d6bad094baeee5f37ce9cfc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
+  levelTransition: {fileID: 11400000, guid: 800cf4f007f3e6a4d85d89ee6e2d175c, type: 2}
+  transitionDuration: 1
   levelsPanel: {fileID: 939616516}
   creditsPanel: {fileID: 169933663}
   playButton: {fileID: 992750006}
@@ -4082,6 +4149,7 @@ GameObject:
   - component: {fileID: 1866966414}
   - component: {fileID: 1866966413}
   - component: {fileID: 1866966412}
+  - component: {fileID: 1866966415}
   m_Layer: 5
   m_Name: 4
   m_TagString: Untagged
@@ -4190,6 +4258,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866966410}
   m_CullTransparentMesh: 1
+--- !u!114 &1866966415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866966410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e28900b8017c17488b3c01096be8992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PixeLadder.EasyTransition.Demo.TransitionDemoButton
+  assignedEffect: {fileID: 11400000, guid: 800cf4f007f3e6a4d85d89ee6e2d175c, type: 2}
 --- !u!1 &1903464186
 GameObject:
   m_ObjectHideFlags: 0
@@ -4591,3 +4672,4 @@ SceneRoots:
   - {fileID: 1129356554}
   - {fileID: 1712145545}
   - {fileID: 1668603829}
+  - {fileID: 1096149888}
